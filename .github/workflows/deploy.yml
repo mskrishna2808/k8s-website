@@ -51,7 +51,6 @@ jobs:
                 image: nginx:${{steps.tag.outputs.tag}}' > pod.yml
 
       - name: applying pod definition file
-        shell: bash
         run: |
           sudo su -
           kubectl delete pod my-nginx-pod
