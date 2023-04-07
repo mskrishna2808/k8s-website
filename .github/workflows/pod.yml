@@ -10,14 +10,14 @@ jobs:
         shell: bash
         run: |
           echo 'apiVersion: v1
-                kind: Pod
-                metadata:
-                  name: my-nginx-pod
-                  labels:
-                    app: web-app
-                    type: front-end
-                spec:
-                  containers:
-                    - name: nginx-container
-                      image: nginx' >> pod.yml
+kind: Pod
+metadata:
+  name: my-nginx-pod
+  labels:
+    app: web-app
+    type: front-end
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx' >> pod.yml
           cp pod.yml /home/ec2-user/pod/
