@@ -16,7 +16,7 @@ jobs:
         id: tag
         run: |
           TAG=$(date +%h%d%H%M%S)
-          echo $TAG >> "$GITHUB_OUTPUT"
+          echo "$TAG" >> "$GITHUB_OUTPUT"
 
       - name: Login to Docker Hub
         uses: docker/login-action@v2
