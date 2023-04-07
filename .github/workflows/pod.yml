@@ -6,6 +6,11 @@ jobs:
   creating-pod:
     runs-on: self-hosted
     steps:
+      - name: Creating Tag for docker image
+        id: tag
+        run: |
+          TAG=$(date +%h%d%H%M%S)
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
       - name: creating pod file
         shell: bash
         run: |
@@ -19,5 +24,5 @@ jobs:
           spec:
             containers:
               - name: nginx-container
-                image: nginx' >> pod.yml
+                image: nginx:${{steps.tag.outputs.tag}}' >> pod.yml
           cp pod.yml /home/ec2-user/pod/
