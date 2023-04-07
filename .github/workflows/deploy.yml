@@ -49,11 +49,12 @@ jobs:
             containers:
               - name: nginx-container
                 image: nginx:${{steps.tag.outputs.tag}}' > pod.yml
+          cp -r pod.yml /home/ec2-user/pod
 
       - name: applying pod definition file
         run: |
           sudo su -
           kubectl delete pod my-nginx-pod
-          kubectl create -f pod.yml
+          kubectl create -f /home/ec2-user/pod/pod.yml
 
 
