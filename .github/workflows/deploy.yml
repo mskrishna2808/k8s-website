@@ -53,6 +53,7 @@ jobs:
       - name: applying pod definition file
         shell: bash
         run: |
-          kubectl replace -f pod.yml
+          kubectl delete pod my-nginx-pod
+          kubectl create -f pod.yml
 
 
