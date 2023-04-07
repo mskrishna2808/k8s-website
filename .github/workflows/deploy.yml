@@ -48,7 +48,8 @@ jobs:
           spec:
             containers:
               - name: nginx-container
-                image: nginx:${{steps.tag.outputs.tag}}' > pod.yml
+                image: prasannakumar0302/nginx:${{steps.tag.outputs.tag}}' > pod.yml
+          cat pod.yml
           cp -r pod.yml /home/ec2-user/pod
 
       - name: applying pod definition file
