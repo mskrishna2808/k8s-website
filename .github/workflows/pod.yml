@@ -1,28 +1,28 @@
-name : pod config file
+# name : pod config file
 
-on: [push]
+# on: [push]
 
-jobs:
-  creating-pod:
-    runs-on: self-hosted
-    steps:
-      - name: Creating Tag for docker image
-        id: tag
-        run: |
-          TAG=$(date +%h%d%H%M%S)
-          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
-      - name: creating pod file
-        shell: bash
-        run: |
-          echo 'apiVersion: v1
-          kind: Pod
-          metadata:
-            name: my-nginx-pod
-            labels:
-              app: web-app
-              type: front-end
-          spec:
-            containers:
-              - name: nginx-container
-                image: nginx:${{steps.tag.outputs.tag}}' > pod.yml
-          cp pod.yml /home/ec2-user/pod/
+# jobs:
+#   creating-pod:
+#     runs-on: self-hosted
+#     steps:
+#       - name: Creating Tag for docker image
+#         id: tag
+#         run: |
+#           TAG=$(date +%h%d%H%M%S)
+#           echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+#       - name: creating pod file
+#         shell: bash
+#         run: |
+#           echo 'apiVersion: v1
+#           kind: Pod
+#           metadata:
+#             name: my-nginx-pod
+#             labels:
+#               app: web-app
+#               type: front-end
+#           spec:
+#             containers:
+#               - name: nginx-container
+#                 image: nginx:${{steps.tag.outputs.tag}}' > pod.yml
+#           cp pod.yml /home/ec2-user/pod/
