@@ -32,6 +32,7 @@ jobs:
           file: .docker/Dockerfile
           tags: prasannakumar0302/nginx:${{steps.tag.outputs.tag}}
   deploy-docker-image-to-k8s:
+    needs: creating-docker-image
     runs-on: self-hosted
     steps:
       - name: creating pod file
