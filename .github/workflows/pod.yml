@@ -24,5 +24,5 @@ jobs:
           spec:
             containers:
               - name: nginx-container
-                image: nginx:${{steps.tag.outputs.tag}}' >> pod.yml
+                image: nginx:${{steps.tag.outputs.tag}}' > pod.yml
           cp pod.yml /home/ec2-user/pod/
